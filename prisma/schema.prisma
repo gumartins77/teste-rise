@@ -1,21 +1,73 @@
 generator client {
-    provider = "prisma-client-js"
+  provider = "prisma-client-js"
 }
 
 datasource db {
-    provider = "mysql"
-    url      = env("DATABASE_URL")
+  provider = "mysql"
+  url      = env("DATABASE_URL")
 }
 
 model User {
-    id           Int      @id @default(autoincrement())
-    name         String
-    role         String
-    email        String
-    passwordHash String?  @map("password_hash")
-    created_at   DateTime @default(now())
-    updated_at   DateTime @default(now()) @updatedAt
+  id Int @id @default(autoincrement())
 
-    @@index([id, role])
-    @@map("user")
+  name         String
+  role         String
+  email        String
+  passwordHash String @map("password_hash")
+
+  ticks Ticket[]
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @default(now()) @updatedAt @map("updated_at")
+
+  @@index([id, role])
+  @@map("user")
+}
+
+model Event {
+  id Int @id @default(autoincrement())
+
+  name                 String
+  description          String
+  imageGallery         String @map("image_gallery")
+  eventDataTime        String @map("event_data_time")
+  eventLocation        String @map("event_location")
+  locationCoordinates  String @map("location_coordinates")
+  importantInformation String @map("important_information")
+  eventMap             String @map("event_map")
+
+  ticks Ticket[]
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @default(now()) @updatedAt @map("updated_at")
+}
+
+model Ticket {
+  id Int @id @default(autoincrement())
+
+  type    String
+  barCode String @map("bar_code")
+  qrCode  String @map("qr_code")
+  price   Float
+
+  Event   Event? @relation(fields: [eventId], references: [id])
+  eventId Int?
+  Batch   Batch? @relation(fields: [batchId], references: [id])
+  batchId Int?
+  User    User[]
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @default(now()) @updatedAt @map("updated_at")
+}
+
+model Batch {
+  id Int @id @default(autoincrement())
+
+  batchSales    Int    @map("batch_sales")
+  batchDeadline String @map("batch_deadline")
+
+  ticks Ticket[]
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @default(now()) @updatedAt @map("updated_at")
 }
