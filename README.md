@@ -1,7 +1,9 @@
 ![Badge em Desenvolvimento](http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=GREEN&style=for-the-badge)
 
 <a id="teste rise"></a>
+
 # teste-rise
+
 # <h1 align="center"> [![Typing SVG](<https://readme-typing-svg.herokuapp.com/?color=ffffff&size=35&center=true&vCenter=true&width=1000&lines=Seja+bem+vindo(a)+ao+Teste+Rise!>)](https://git.io/typing-svg) </h1>
 
 ---
@@ -44,7 +46,7 @@ O Git Bash faz parte do pacote Git for Windows, que é oferecido no próprio sit
 Clone o projeto na janela que abriu com o seguinte comando:
 
 ```bash
-  git clone git@github.com:wandersonDeve/coluna_reta_api.git
+  git clone https://github.com/gumartins77/teste-rise.git
 ```
 
 Após isso pode fechar a janela!
