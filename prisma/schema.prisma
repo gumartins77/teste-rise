@@ -45,7 +45,7 @@ model Event {
 model Ticket {
   id Int @id @default(autoincrement())
 
-  type    String @unique
+  type    String 
   barCode String @map("bar_code")
   qrCode  String @map("qr_code")
   price   Float
