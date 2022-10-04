@@ -8,6 +8,7 @@ import { UserModule } from './modules/user/user.module';
 import { EventController } from './modules/event/event.controller';
 import { EventModule } from './modules/event/event.module';
 import { BatchModule } from './modules/batch/batch.module';
+import { TicketModule } from './modules/ticket/ticket.module';
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import { BatchModule } from './modules/batch/batch.module';
     UserModule,
     EventModule,
     BatchModule,
+    TicketModule,
   ],
   controllers: [AppController],
   providers: [AppService, PrismaService],
