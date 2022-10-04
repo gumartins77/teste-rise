@@ -23,7 +23,8 @@
     "prisma:generate": "prisma generate",
     "prisma:migrate": "prisma migrate dev",
     "prisma:migrate:deploy": "prisma migrate deploy",
-    "prisma": "prisma"
+    "prisma": "prisma",
+    "seed": "ts-node ./prisma/seed/seed.ts"
   },
   "dependencies": {
     "@nestjs/common": "^9.0.0",

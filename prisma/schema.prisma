@@ -12,7 +12,7 @@ model User {
 
   name         String
   role         String
-  email        String
+  email        String @unique
   passwordHash String @map("password_hash")
 
   ticks Ticket[]
@@ -27,7 +27,7 @@ model User {
 model Event {
   id Int @id @default(autoincrement())
 
-  name                 String
+  name                 String @unique
   description          String
   imageGallery         String @map("image_gallery")
   eventDataTime        String @map("event_data_time")
@@ -45,7 +45,7 @@ model Event {
 model Ticket {
   id Int @id @default(autoincrement())
 
-  type    String
+  type    String @unique
   barCode String @map("bar_code")
   qrCode  String @map("qr_code")
   price   Float
