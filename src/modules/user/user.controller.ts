@@ -53,7 +53,7 @@ export class UserController {
     return this.findAllUsersServices.execute();
   }
 
-  @Get(':userID')
+  @Get(':userId')
   @UseGuards(AuthGuard())
   @ApiBearerAuth()
   @ApiOperation({
@@ -63,7 +63,7 @@ export class UserController {
     return this.findOneUserService.execute(user.id);
   }
 
-  @Patch('update/:userID')
+  @Patch('update/:userId')
   @UseGuards(AuthGuard())
   @ApiBearerAuth()
   @ApiOperation({
@@ -76,7 +76,7 @@ export class UserController {
     return this.updateUserService.execute(user.id, updateUserDto);
   }
 
-  @Delete('delete/:userID')
+  @Delete('delete/:userId')
   @UseGuards(AuthGuard())
   @ApiBearerAuth()
   @HttpCode(HttpStatus.NO_CONTENT)
