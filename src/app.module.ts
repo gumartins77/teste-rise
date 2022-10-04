@@ -7,6 +7,7 @@ import { AuthModule } from './modules/auth/auth.module';
 import { UserModule } from './modules/user/user.module';
 import { EventController } from './modules/event/event.controller';
 import { EventModule } from './modules/event/event.module';
+import { BatchModule } from './modules/batch/batch.module';
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import { EventModule } from './modules/event/event.module';
     AuthModule,
     UserModule,
     EventModule,
+    BatchModule,
   ],
   controllers: [AppController],
   providers: [AppService, PrismaService],
