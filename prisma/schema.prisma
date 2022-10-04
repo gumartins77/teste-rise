@@ -63,6 +63,7 @@ model Ticket {
 model Batch {
   id Int @id @default(autoincrement())
 
+  name          String @unique
   batchSales    Int    @map("batch_sales")
   batchDeadline String @map("batch_deadline")
 
