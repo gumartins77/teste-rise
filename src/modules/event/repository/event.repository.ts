@@ -31,6 +31,13 @@ export class EventRepository extends PrismaClient {
     const event = await this.event
       .findUnique({
         where: { id: eventId },
+        include: {
+          ticks: {
+            include: {
+              Batch: true
+            }
+          }
+        }
       })
       .catch(handleError);
 
